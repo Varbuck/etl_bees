@@ -1,0 +1,6 @@
+connections:
+  - conn_id: spark-con
+    conn_type: Spark
+    host: spark-master
+    port: 7077
+    extra: '{"spark-submit-options": "--master spark://spark-master:7077"}'

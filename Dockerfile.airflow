@@ -1,0 +1,42 @@
+FROM docker.io/bitnami/airflow:2
+
+# Instalar dependências do sistema
+USER root
+#RUN apt-get update && apt-get install -y build-essential libpq-dev
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+                    openjdk-17-jre-headless \
+    && apt-get autoremove -yqq --purge \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Garantir permissões nos diretórios do PostgreSQL (se necessário)
+RUN mkdir -p /bitnami/postgresql/data && \
+    chown -R root:root /bitnami/postgresql/data && \
+    chmod -R 775 /bitnami/postgresql/data
+
+# Garantir permissões nos diretórios do Airflow, especialmente logs e webserver config
+RUN mkdir -p /opt/bitnami/airflow/logs && \
+    mkdir -p /opt/bitnami/airflow/webserver_config && \
+    chown -R 1001:1001 /opt/bitnami/airflow && \
+    chmod -R 775 /opt/bitnami/airflow/logs /opt/bitnami/airflow/webserver_config
+
+# Alterar para o usuário padrão para instalar bibliotecas no ambiente virtual
+USER 1001
+
+# Instalar dependências do Python no ambiente virtual
+RUN /opt/bitnami/airflow/venv/bin/pip install \
+    #"pyspark>=3.1.3" \
+    "grpcio-status>=1.59.0" \
+    apache-airflow \
+    apache-airflow-providers-apache-spark \
+    pyspark==3.5.3 \
+    delta-spark==3.2.1 \
+    pytest pillow \
+    azure-kusto-data \
+    azure-kusto-ingest
+
+# Set JAVA_HOME environment variable
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+RUN pip install apache-airflow apache-airflow-providers-apache-spark pyspark==3.5.3 delta-spark==3.2.1 pytest pillow azure-kusto-data azure-kusto-ingest

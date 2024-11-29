@@ -1,0 +1,7 @@
+# Pastas não necessárias no git
+/airflow/logs
+/data
+/postgresql_data
+/airflow/dags/__pycache__
+__pycache__/
+*Zone.Identifier

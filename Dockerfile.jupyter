@@ -1,0 +1,18 @@
+FROM jupyter/scipy-notebook:latest
+
+# Instalar OpenJDK (Java 11)
+USER root
+RUN apt-get update && apt-get install -y openjdk-11-jdk
+
+# Definir JAVA_HOME
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+# Atualiza pacotes e instala bibliotecas necessárias
+RUN pip install --no-cache-dir pandas pyarrow fastparquet pyspark
+
+# Cria um diretório para armazenar os arquivos
+WORKDIR /home/jovyan/work
+
+# Expor a porta 8888 para o Jupyter Notebook
+EXPOSE 8888
