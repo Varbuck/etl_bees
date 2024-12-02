@@ -1,3 +1,10 @@
+git clone
+docker compose build
+sudo chmod -R 777 *
+docker compose up -d
+
+add spark-con
+
 # Bees
 user airflow:admin   
 password:admin   

@@ -22,7 +22,7 @@ RUN mkdir -p /opt/bitnami/airflow/logs && \
     chmod -R 775 /opt/bitnami/airflow/logs /opt/bitnami/airflow/webserver_config
 
 # Alterar para o usuário padrão para instalar bibliotecas no ambiente virtual
-USER 1001
+# USER 1001
 
 # Instalar dependências do Python no ambiente virtual
 RUN /opt/bitnami/airflow/venv/bin/pip install \
