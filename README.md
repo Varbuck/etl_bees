@@ -54,7 +54,7 @@ $ cd etl_bees
 ### 2. Estrutura do Projeto
 
 A estrutura do projeto é organizada conforme o padrão recomendado para projetos de dados. Aqui está uma visualização do que você encontrará após clonar o repositório:  
-![Estrutura do Projeto](./images/project_structure.png) 
+![Estrutura do Projeto](./images/estrutura.png) 
 
 
 ### 3. Configurar o Docker
