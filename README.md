@@ -91,7 +91,10 @@ Três portas estarão disponíveis no localhost:
 - Configure a conexão:
   - Clique em "ADM" 
   - Clique em "Connections"
+  ![Airflow Con](./images/airflow_con.png)   
+
   - Preencha os campos com os valores:
+  - ![Airflow Con](./images/airflow_con.png)  
     - Connection Id: spark-con
     - Connection Type: Spark
     - Host: spark://spark-master
@@ -103,6 +106,8 @@ Três portas estarão disponíveis no localhost:
 ### 5. Executar o Pipeline ETL
 
 - Com o Airflow rodando, você poderá agendar a execução do DAG do pipeline ETL.
+- Nome da DAG: 
+  - ppl_brewery
 - O pipeline é composto por três camadas:
   - **Bronze**: Persistência dos dados brutos da API.
   - **Silver**: Transformação para armazenamento em formato colunar (como Parquet) e particionado por localização.
