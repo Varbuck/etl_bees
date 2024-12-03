@@ -94,24 +94,24 @@ Três portas estarão disponíveis no localhost:
   ![Airflow Con](./images/airflow_con.png)   
 
   - Preencha os campos com os valores:
-  - ![Airflow Con](./images/airflow_con.png)  
+  - ![Airflow Con](./images/airflow_con2.png)  
     - Connection Id: spark-con
     - Connection Type: Spark
     - Host: spark://spark-master
     - Port: 7077
     - Clique em Salvar
 
-![Configuração do Airflow](./images/airflow_connection.png) 
 
 ### 5. Executar o Pipeline ETL
 
-- Com o Airflow rodando, você poderá agendar a execução do DAG do pipeline ETL.
-- Nome da DAG: 
-  - ppl_brewery
+
+- No Airflow, clique em "DAGS" e selecione o DAG "brewery_list" para executar.  
+  ![Execução do DAG no Airflow](./images/dag_execution.png) 
+
+
 - O pipeline é composto por três camadas:
   - **Bronze**: Persistência dos dados brutos da API.
   - **Silver**: Transformação para armazenamento em formato colunar (como Parquet) e particionado por localização.
   - **Gold**: Criação de uma visão agregada com a quantidade de cervejarias por tipo e localização.
 
-- No Airflow, clique em "DAGS" e selecione o DAG "brewery_list" para executar.  
-  ![Execução do DAG no Airflow](./images/airflow_dag_execution.png) 
+
