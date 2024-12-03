@@ -109,9 +109,22 @@ Três portas estarão disponíveis no localhost:
   ![Execução do DAG no Airflow](./images/dag_execution.png) 
 
 
-- O pipeline é composto por três camadas:
+- O pipeline é composto por quatro etapas passando por três camadas:
   - **Bronze**: Persistência dos dados brutos da API.
   - **Silver**: Transformação para armazenamento em formato colunar (como Parquet) e particionado por localização.
   - **Gold**: Criação de uma visão agregada com a quantidade de cervejarias por tipo e localização.
 
+
+### Visualizar os dados no Jupyter 
+
+  ![jupyter Interface](./images/jupyter_interface2.png) 
+
+- Abra a pasta jupyter_note
+- Abra notebook Leitura_camada_gold  
+- Execute as células
+
+  ![execução Celulas](./images/jupyter_celulas.png) 
+
+- Resultado
+  ![resultado](./images/resultado.png) 
 
