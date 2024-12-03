@@ -126,5 +126,6 @@ Três portas estarão disponíveis no localhost:
   ![execução Celulas](./images/jupyter_celulas.png) 
 
 - Resultado
+  
   ![resultado](./images/resultado.png) 
 
